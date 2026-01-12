@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid with Animated Palette</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+
+    <div id="container">
+        <div class="palette" id="palette"></div> <!-- animated color overlay -->
+
+        <div class="GridItem" img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0im3run0JHWXF6_e7ZCr0tDbZqZh9mawmNw&s"><div id="animation-container">
+            <div class="palette" id="palette"></div>
+        </div>
+        </div>
+        <div class="GridItem"><div id="confetti-container"></div>
+    </div>
+        <div class="GridItem"><button id="flipBtn">Flip Page</button>
+        </div>
+        <div class="GridItem"><div id="ball"></div>
+    </div>
+        <div class="GridItem"><p><a href="https://youtu.be/dQw4w9WgXcQ?si=0r5BgHkdyJpAo794">VYOUTOO</a></p></div>
+        <div class="GridItem"><div id="weatherBox">
+            <h3>Laikapstākļi Cēsis</h3>
+            <div id="weatherCurrent">Ielādē...</div>
+          </div>
+          </div>
+
+
+        <div class="GridItem"><form id="userForm">
+  <h2>Personas informācija</h2>
+
+  <label for="firstName">Vārds:</label>
+  <input type="text" id="firstName" name="firstName" required pattern="[A-Za-zĀ-ž\s]{2,50}" title="Vārds jābūt 2-50 burtiem">
+
+  <label for="lastName">Uzvārds:</label>
+  <input type="text" id="lastName" name="lastName" required pattern="[A-Za-zĀ-ž\s]{2,50}" title="Uzvārds jābūt 2-50 burtiem">
+
+  <label for="phone">Telefona numurs:</label>
+  <input type="tel" id="phone" name="phone" required pattern="^\+?371\d{8}$" title="Telefona numurs jābūt LV formātā, piemēram +37112345678">
+
+  <label for="personalCode">Personas kods:</label>
+  <input type="text" id="personalCode" name="personalCode" required pattern="^\d{6}-\d{5}$" title="Personas kods formātā DDMMYY-XXXXX">
+
+  <button type="submit">Iesniegt</button>
+</form>
+
+<p id="formMessage"></p>
+    </div>
+        <div class="GridItem"><h2>Rediģēt lietotāju</h2>
+
+            <label for="userSelect">Izvēlies lietotāju:</label>
+            <select id="userSelect">
+              <option value="">--Izvēlies--</option>
+            </select>
+            
+            <form id="editForm">
+              <label>Vārds:</label>
+              <input type="text" id="firstName" required pattern="[A-Za-zĀ-ž\s]{2,50}">
+            
+              <label>Uzvārds:</label>
+              <input type="text" id="lastName" required pattern="[A-Za-zĀ-ž\s]{2,50}">
+            
+              <label>Telefona numurs:</label>
+              <input type="tel" id="phone" required pattern="^\+371\d{8}$">
+            
+              <label>Personas kods:</label>
+              <input type="text" id="personalCode" required pattern="^\d{6}-\d{5}$">
+            
+              <button type="submit">Saglabāt izmaiņas</button>
+            </form>
+            
+            <p id="editMessage"></p>
+            </div>
+        <div class="GridItem"><h2>Izdzēst lietotāju</h2>
+
+            <label for="deleteUserSelect">Izvēlies lietotāju:</label>
+            <select id="deleteUserSelect">
+              <option value="">--Izvēlies--</option>
+            </select>
+            
+            <button id="deleteBtn">Dzēst lietotāju</button>
+            
+            <p id="deleteMessage"></p>
+            </div>
+    </div>
+
+    <script src="Source.js" defer></script>
+</body>
+</html>
