@@ -3,90 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grid with Animated Palette</title>
     <link rel="stylesheet" href="Style.css">
+    <title>Confetti Effect</title>
+    <!-- Include the canvas-confetti library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
 
-    <div id="container">
-        <div class="palette" id="palette"></div> <!-- animated color overlay -->
-
-        <div class="GridItem" img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0im3run0JHWXF6_e7ZCr0tDbZqZh9mawmNw&s"><div id="animation-container">
-            <div class="palette" id="palette"></div>
-        </div>
-        </div>
-        <div class="GridItem"><div id="confetti-container"></div>
-    </div>
-        <div class="GridItem"><button id="flipBtn">Flip Page</button>
-        </div>
-        <div class="GridItem"><div id="ball"></div>
-    </div>
-        <div class="GridItem"><p><a href="https://youtu.be/dQw4w9WgXcQ?si=0r5BgHkdyJpAo794">VYOUTOO</a></p></div>
-        <div class="GridItem"><div id="weatherBox">
-            <h3>Laikapstākļi Cēsis</h3>
-            <div id="weatherCurrent">Ielādē...</div>
-          </div>
-          </div>
-
-
-        <div class="GridItem"><form id="userForm">
-  <h2>Personas informācija</h2>
-
-  <label for="firstName">Vārds:</label>
-  <input type="text" id="firstName" name="firstName" required pattern="[A-Za-zĀ-ž\s]{2,50}" title="Vārds jābūt 2-50 burtiem">
-
-  <label for="lastName">Uzvārds:</label>
-  <input type="text" id="lastName" name="lastName" required pattern="[A-Za-zĀ-ž\s]{2,50}" title="Uzvārds jābūt 2-50 burtiem">
-
-  <label for="phone">Telefona numurs:</label>
-  <input type="tel" id="phone" name="phone" required pattern="^\+?371\d{8}$" title="Telefona numurs jābūt LV formātā, piemēram +37112345678">
-
-  <label for="personalCode">Personas kods:</label>
-  <input type="text" id="personalCode" name="personalCode" required pattern="^\d{6}-\d{5}$" title="Personas kods formātā DDMMYY-XXXXX">
-
-  <button type="submit">Iesniegt</button>
-</form>
-
-<p id="formMessage"></p>
-    </div>
-        <div class="GridItem"><h2>Rediģēt lietotāju</h2>
-
-            <label for="userSelect">Izvēlies lietotāju:</label>
-            <select id="userSelect">
-              <option value="">--Izvēlies--</option>
-            </select>
-            
-            <form id="editForm">
-              <label>Vārds:</label>
-              <input type="text" id="firstName" required pattern="[A-Za-zĀ-ž\s]{2,50}">
-            
-              <label>Uzvārds:</label>
-              <input type="text" id="lastName" required pattern="[A-Za-zĀ-ž\s]{2,50}">
-            
-              <label>Telefona numurs:</label>
-              <input type="tel" id="phone" required pattern="^\+371\d{8}$">
-            
-              <label>Personas kods:</label>
-              <input type="text" id="personalCode" required pattern="^\d{6}-\d{5}$">
-            
-              <button type="submit">Saglabāt izmaiņas</button>
-            </form>
-            
-            <p id="editMessage"></p>
+    <div id="Container">
+        <div id="Box">
+            <div class="image-container">
+                <img src="vtdt.jpg" alt="Image description">
+                <div class="overlay"></div>
             </div>
-        <div class="GridItem"><h2>Izdzēst lietotāju</h2>
+            
+        </div>
+        <div id="confetti-container"></div>
+        <button id="rotate-button">Rotate Page</button> <!-- Added button here -->
+        <div id="Box"><div id="ball"></div></div>
+        <div id="Box-links">
+            <a href="https://youtu.be/dQw4w9WgXcQ?si=0r5BgHkdyJpAo794">youtube</a>
+            <a href="https://youtu.be/dQw4w9WgXcQ?si=0r5BgHkdyJpAo794">youtube</a>
+            <a href="https://youtu.be/dQw4w9WgXcQ?si=0r5BgHkdyJpAo794">youtube</a>
+            <a href="https://youtu.be/dQw4w9WgXcQ?si=0r5BgHkdyJpAo794">youtube</a>
+            <a href="https://youtu.be/dQw4w9WgXcQ?si=0r5BgHkdyJpAo794">youtube</a>
+        </div>
+        <div id="Box"><h1>Cēsis Weather</h1><div id="api-data">Loading...</div></div>
 
-            <label for="deleteUserSelect">Izvēlies lietotāju:</label>
-            <select id="deleteUserSelect">
-              <option value="">--Izvēlies--</option>
-            </select>
-            
-            <button id="deleteBtn">Dzēst lietotāju</button>
-            
-            <p id="deleteMessage"></p>
-            </div>
+
+        <!-- DB Input Form -->
+<div id="Box" class="db-box">
+    <h2>Add User</h2>
+    <form id="add-user-form">
+        <input type="text" id="first-name" placeholder="First Name" required>
+        <input type="text" id="last-name" placeholder="Last Name" required>
+        <input type="tel" id="phone" placeholder="Phone (e.g., +371 12345678)" pattern="^\+?\d{8,15}$" required>
+        <input type="text" id="id-code" placeholder="Personal Code (e.g., 123456-12345)" pattern="^\d{6}-\d{5}$" required>
+        <button type="submit">Add User</button>
+    </form>
+</div>
+
+<!-- DB Edit Form -->
+<div id="Box" class="db-box">
+    <h2>Edit User</h2>
+    <select id="edit-user-select">
+        <option value="">Select user</option>
+    </select>
+    <form id="edit-user-form">
+        <input type="text" id="edit-first-name" placeholder="First Name" required>
+        <input type="text" id="edit-last-name" placeholder="Last Name" required>
+        <input type="tel" id="edit-phone" placeholder="Phone" pattern="^\+?\d{8,15}$" required>
+        <input type="text" id="edit-id-code" placeholder="Personal Code" pattern="^\d{6}-\d{5}$" required>
+        <button type="submit">Save Changes</button>
+    </form>
+</div>
+
+<!-- DB Delete Form -->
+<div id="Box" class="db-box">
+    <h2>Delete User</h2>
+    <select id="delete-user-select">
+        <option value="">Select user</option>
+    </select>
+    <button id="delete-user-button">Delete User</button>
+</div>
+
     </div>
-
-    <script src="Source.js" defer></script>
+    <script src="Source.js"></script>
 </body>
 </html>
